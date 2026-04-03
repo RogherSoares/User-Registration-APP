@@ -11,5 +11,16 @@ import androidx.room.Query;
 //Importa a classe List do Java para retornar a lista de usuários
 import java.util.List;
 
+//Define a classe como um Data Access Object
+@Dao
 public interface UserDao {
+    //Método para inserir um usuário na tabela do BD
+    //A anotação @Insert informa à Room que este método deve ser usado para inserir dado
+    @Insert
+    void insert(User user);
+
+    //Método para buscar todos os usuários da tabela do BD
+    //A anotação @Query permite definir uma consulta SQL personalizada
+    @Query("SELECT * FROM User")
+    List<User> getAllUsers();
 }
