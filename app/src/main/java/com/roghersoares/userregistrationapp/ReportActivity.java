@@ -1,6 +1,7 @@
 package com.roghersoares.userregistrationapp;
 
 //Importações de componentes de UI, intenções e a biblioteca
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,5 +23,14 @@ public class ReportActivity  extends AppCompatActivity {
         //O botão de retorno utilizando expressão lambda
         btnVoltar.setOnClickListener(v -> voltarParaCadastro());
 
+    }
+
+    //Método responsável pela navegação entre as telas do app
+    public void voltarParaCadastro() {
+        //Intenção para abrir a tela de cadastro
+        Intent intent = new Intent(ReportActivity.this, MainActivity.class);
+        startActivity(intent);
+        // Fecha a tela de relatórios para não acumular na pilha de tarefas
+        finish();
     }
 }
