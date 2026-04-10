@@ -27,6 +27,8 @@ public abstract class UserDataBase extends RoomDatabase {
             // fallbackToDestructiveMigration - se houver mudança de versão e não houve migração, o BD será recriado do zero
             instance = Room.databaseBuilder(context.getApplicationContext(), UserDataBase.class, "user_database").fallbackToDestructiveMigration().allowMainThreadQueries().build();
         }
+        //Retorna a Instância criada
+        return instance;
     }
 
 }
