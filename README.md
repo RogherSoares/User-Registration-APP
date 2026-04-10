@@ -6,13 +6,16 @@ Este é um aplicativo Android desenvolvido para a disciplina de Desenvolvimento 
 
 - **Modelo de Dados (User):** Definição da entidade de usuário com campos para Nome, CPF, E-mail e Telefone.
 - **Persistência com Room:** O Room é uma biblioteca de persistência que fornece uma camada de abstração sobre o SQLite, permitindo um acesso mais robusto ao banco de dados.
-    - **Entity (@Entity):** Representa uma tabela no banco de dados. No projeto, a classe `User` é mapeada como uma tabela.
-    - **DAO (@Dao):** *Data Access Object*. É a interface responsável por definir os métodos de acesso aos dados (como `insert`, `delete`, `query`).
-    - **Database (@Database):** O ponto de entrada principal para a conexão com os dados persistidos do aplicativo.
+    - **Entity (@Entity):** Representa uma tabela no banco de dados. No projeto, a classe `User` agora possui uma chave primária auto-gerada (`id`), além de campos para nome, cpf, email e telefone.
+    - **DAO (@Dao):** *Data Access Object*. Define as operações de banco de dados. Inclui métodos para `insert` e `getAllUsers`.
+    - **Database (@Database):** Classe abstrata `UserDataBase` que estende `RoomDatabase`. Utiliza o padrão **Singleton** para garantir uma única instância do banco de dados e o método `databaseBuilder` para sua criação.
 - **Interface do Usuário:**
-    - **MainActivity:** Tela principal para entrada de dados e interação inicial.
-    - **ReportActivity:** Tela para exibição de relatórios e listagem de usuários.
-- **Permissões:** Uso do `AndroidManifest.xml` para declarar permissões necessárias ao sistema.
+    - **MainActivity:** Implementa a lógica de captura de dados dos `EditText`, validação de campos obrigatórios e salvamento no banco de dados via DAO. Utiliza `Toast` e `Log.d` para feedback ao usuário e depuração.
+    - **ReportActivity:** Responsável por recuperar a lista de usuários do banco de dados e exibi-los.
+- **Lógica e Fluxo:**
+    - **Captura de Dados:** Uso de `getText().toString()` para obter dados dos campos de entrada.
+    - **Validação:** Verificação simples com `isEmpty()` para garantir que campos essenciais não fiquem em branco.
+    - **Navegação:** Uso de `Intent` para transição entre as telas `MainActivity` e `ReportActivity`.
 
 ## 🛠️ Tecnologias Utilizadas
 
