@@ -46,8 +46,12 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     //Biblioteca principal
-    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation ("androidx.room:room-runtime:2.7.0")
 
     //Processador de anotçãoes do ROOM (necessário para gerar código automaticamente)
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.7.0")
+
+    //Força o uso da biblioteca de metadados atualizada
+    //implementation (libs.kotlin.metadata.jvm)
+    //annotationProcessor (libs.kotlin.metadata.jvm)
 }

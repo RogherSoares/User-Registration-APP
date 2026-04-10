@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonReport = findViewById(R.id.buttonReport);
 
         // Configuração do banco de dados usando Room
-        UserDataBase db = Room.databaseBuilder(getApplicationContext(),
-                UserDataBase.class, "user-database").allowMainThreadQueries().build();
+        UserDataBase db = UserDataBase.getInstance(getApplicationContext());
         userDao = db.userDao(); // Obtém uma instância do DAO para interagir com os dados
 
         // Configura o botão de salvar usuário

@@ -1,7 +1,7 @@
 package com.roghersoares.userregistrationapp;
 
 //Importações de componentes de UI, intenções e a biblioteca
-import androidx.room.ROOM;
+import androidx.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -33,7 +33,7 @@ public class ReportActivity  extends AppCompatActivity {
         * O correto seria fazer consultas em threads separados.
         */
 
-        UserDataBase db = ROOM.databaseBuilder(getApplicationContext(), UserDataBase.class, "user-database").allowMainThreadQueries().build();
+        UserDataBase db = UserDataBase.getInstance(getApplicationContext());
 
         //Ontém o objeto DAO (Data Access Object) que contém as queries SQL
         UserDao userDao = db.userDao();
