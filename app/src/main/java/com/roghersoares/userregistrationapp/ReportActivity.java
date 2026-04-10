@@ -50,7 +50,6 @@ public class ReportActivity  extends AppCompatActivity {
         //Exibe o relatório final montado na TextView da tela
         textViewReport.setText(report.toString());
 
-)
     }
 
     //Método responsável pela navegação entre as telas do app
